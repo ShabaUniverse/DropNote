@@ -15,9 +15,9 @@ function App() {
     <div className="App text-gray-800">
       <Menu />
       <Routes>
-        <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<Signup/>} />
-        <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
