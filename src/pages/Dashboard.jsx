@@ -2,15 +2,18 @@ import React from "react";
 import { auth } from "../firebase/firebase-config";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { setIsLogged } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
 
 const Dashboard = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+    const dispatch = useDispatch();
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      navigate("/login")
+      navigate("/login");
+      dispatch(setIsLogged(false));
       console.log("user logged out");
-
     } catch (error) {
       console.log("error while logging out");
     }

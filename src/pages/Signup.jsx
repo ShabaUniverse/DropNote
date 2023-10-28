@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const Signup = () => {
   let dispatch = useDispatch();
   let navigate = useNavigate();
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -54,7 +54,6 @@ const Signup = () => {
             <Link to={"/login"} className="text-sm text-teal-500 underline">
               Login
             </Link>
-            <p>{isLogged.toString()}</p>
           </div>
         </div>
       </div>
