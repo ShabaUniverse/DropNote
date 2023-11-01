@@ -13,6 +13,8 @@ const Login = () => {
   const isLogged = useSelector((state) => state.userSlice.isLogged);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // that for displaying errors on wp
+  const [errorMessage, setErrorMessage] = useState("");
 
   const loginUser = async () => {
     try{
@@ -21,7 +23,7 @@ const Login = () => {
       dispatch(setIsLogged(true))
       navigate("/dashboard")
     }catch(error){
-      console.log(error);
+      console.log(error.code);
     }
   };
 

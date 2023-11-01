@@ -11,6 +11,8 @@ const Signup = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+    // that for displaying errors on wp
+  const [errorMessage, setErrorMessage] = useState("");
 
   let isLogged = useSelector((state) => state.userSlice.isLogged);
 
@@ -24,7 +26,7 @@ const Signup = () => {
         },
       );
     } catch(error) {
-      console.log(error)
+      console.log(error.code)
     }
   };
 
