@@ -22,8 +22,12 @@ const Login = () => {
       console.log("successfully signed in");
       dispatch(setIsLogged(true))
       navigate("/dashboard")
+      setErrorMessage("")
     }catch(error){
-      console.log(error.code);
+      console.log(error.message);
+      if(error.code === "auth/invalid-login-credentials" || error.code === "auth/invalid-email"){
+        setErrorMessage("Wrong Email/Password")
+      }
     }
   };
 
@@ -51,6 +55,7 @@ const Login = () => {
             <Link to="/signup" className="text-sm text-teal-500 underline">
               Signup
             </Link>
+            <span className=" text-sm text-red-500">{errorMessage}</span>
           </div>
         </div>
       </div>
