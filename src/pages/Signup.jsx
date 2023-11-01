@@ -14,8 +14,6 @@ const Signup = () => {
     // that for displaying errors on wp
   const [errorMessage, setErrorMessage] = useState("");
 
-  let isLogged = useSelector((state) => state.userSlice.isLogged);
-
   const createUser = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password).then(

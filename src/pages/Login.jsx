@@ -10,7 +10,6 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const isLogged = useSelector((state) => state.userSlice.isLogged);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // that for displaying errors on wp
