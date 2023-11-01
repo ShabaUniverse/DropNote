@@ -1,9 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import Menu from "./components/Menu";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import { useSelector } from "react-redux";
 
 // bg-gray-800 - dark
 // bg-teal-500 - dark teal:
@@ -11,13 +12,25 @@ import Dashboard from "./pages/Dashboard";
 // bg-blue-100 gray
 
 function App() {
+  const isLogged = useSelector((state) => state.userSlice.isLogged);
+
   return (
     <div className="App text-gray-800">
       <Menu />
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/login"
+          element={isLogged ? <Navigate to="/dashboard" /> : <Login />}
+        />
+
+        <Route
+          path="/signup"
+          element={isLogged ? <Navigate to="/dashboard" /> : <Signup />}
+        />
+        <Route
+          path="/dashboard"
+          element={isLogged ? <Dashboard /> : <Navigate to="/login" />}
+        />
       </Routes>
     </div>
   );
