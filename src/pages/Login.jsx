@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase-config";
-import { setIsLogged } from "../redux/userSlice";
+import { setIsLogged, setCurrentUID } from "../redux/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,6 +20,7 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("successfully signed in");
       dispatch(setIsLogged(true))
+      dispatch(setCurrentUID((auth.currentUser.uid)));
       navigate("/dashboard")
       setErrorMessage("")
     }catch(error){
