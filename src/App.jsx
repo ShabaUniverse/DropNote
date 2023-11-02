@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import { useSelector } from "react-redux";
+import Home from "./pages/Home";
 
 // bg-gray-800 - dark
 // bg-teal-500 - dark teal:
@@ -18,6 +19,7 @@ function App() {
     <div className="App text-gray-800">
       <Menu />
       <Routes>
+        <Route path="/" element={<Home />}/>
         <Route
           path="/login"
           element={isLogged ? <Navigate to="/dashboard" /> : <Login />}
