@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase/firebase-config";
+import { auth, db } from "../firebase/firebase-config";
 import { setIsLogged, setCurrentUID } from "../redux/userSlice";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { setDoc, doc } from "firebase/firestore";
+
 const Signup = () => {
   let dispatch = useDispatch();
   let navigate = useNavigate();
@@ -21,6 +22,9 @@ const Signup = () => {
           console.log(credential);
           dispatch(setIsLogged(true));
           dispatch(setCurrentUID(credential.user.uid))
+          setDoc(doc(db,"users", credential.user.uid), {
+            email: credential.user.email
+          })
           navigate("/dashboard");
           setErrorMessage("")
         },
@@ -32,6 +36,11 @@ const Signup = () => {
       }
     }
   };
+
+  
+  
+
+
 
   return (
     <div className="h-screen pl-48">
