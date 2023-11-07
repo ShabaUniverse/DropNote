@@ -25,7 +25,7 @@ const Signup = () => {
           setDoc(doc(db,"users", credential.user.uid), {
             email: credential.user.email
           })
-          navigate("/dashboard");
+          navigate("/profile");
           setErrorMessage("")
         },
       );

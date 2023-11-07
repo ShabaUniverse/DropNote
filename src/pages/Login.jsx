@@ -16,22 +16,23 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const loginUser = async () => {
-    try{
+    try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("successfully signed in");
-      dispatch(setIsLogged(true))
-      dispatch(setCurrentUID((auth.currentUser.uid)));
-      navigate("/dashboard")
-      setErrorMessage("")
-    }catch(error){
+      dispatch(setIsLogged(true));
+      dispatch(setCurrentUID(auth.currentUser.uid));
+      navigate("/profile");
+      setErrorMessage("");
+    } catch (error) {
       console.log(error.message);
-      if(error.code === "auth/invalid-login-credentials" || error.code === "auth/invalid-email"){
-        setErrorMessage("Wrong Email/Password")
+      if (
+        error.code === "auth/invalid-login-credentials" ||
+        error.code === "auth/invalid-email"
+      ) {
+        setErrorMessage("Wrong Email/Password");
       }
     }
   };
-
-  
 
   return (
     <div className="h-screen pl-48">
@@ -50,7 +51,9 @@ const Login = () => {
               placeholder="Password"
               className="bg-blue-100 outline-none border-none py-1 px-3 my-1 rounded-sm w-[250px]"
             />
-            <button onClick={() => loginUser()} className=" bg-teal-400 text-white px-3 py-1 my-3 rounded-sm hover:bg-teal-500">
+            <button
+              onClick={() => loginUser()}
+              className=" bg-teal-400 text-white px-3 py-1 my-3 rounded-sm hover:bg-teal-500">
               Login
             </button>
             <span className=" text-sm">Not user yet?</span>
