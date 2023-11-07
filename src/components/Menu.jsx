@@ -19,10 +19,18 @@ const Menu = () => {
       )}
 
       {isLogged && (
-        <Link to="/dashboard" className=" text-white font-semibold">
-          Dashboard
+        <Link to="/profile" className=" text-white font-semibold">
+          Profile
         </Link>
       )}
+
+      {
+        isLogged && (
+          <Link to="/dashboard" className=" text-white font-semibold">
+            Dashboard
+          </Link>
+        )
+      }
     </div>
   );
 };
