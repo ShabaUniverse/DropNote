@@ -3,9 +3,10 @@ import "./App.css";
 import Menu from "./components/Menu";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 import { useSelector } from "react-redux";
 import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 
 // bg-gray-800 - dark
 // bg-teal-500 - dark teal:
@@ -19,16 +20,21 @@ function App() {
     <div className="App text-gray-800">
       <Menu />
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route path="/" element={<Home />} />
         <Route
           path="/login"
-          element={isLogged ? <Navigate to="/dashboard" /> : <Login />}
+          element={isLogged ? <Navigate to="/profile" /> : <Login />}
         />
 
         <Route
           path="/signup"
-          element={isLogged ? <Navigate to="/dashboard" /> : <Signup />}
+          element={isLogged ? <Navigate to="/profile" /> : <Signup />}
         />
+        <Route
+          path="/profile"
+          element={isLogged ? <Profile /> : <Navigate to="/login" />}
+        />
+
         <Route
           path="/dashboard"
           element={isLogged ? <Dashboard /> : <Navigate to="/login" />}
