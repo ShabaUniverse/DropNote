@@ -28,7 +28,7 @@ const Profile = () => {
 
   useEffect(() => {
     const getEmail = async () => {
-      const docRef = doc(db, "users", currentUID);
+      const docRef = doc(db, "users", localStorage.currentUID);
       const docSnap = await getDoc(docRef);
       if(docSnap.exists()){
         let data = docSnap.data();
