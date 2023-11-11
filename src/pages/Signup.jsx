@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../firebase/firebase-config";
-import { setIsLogged, setCurrentUID } from "../redux/userSlice";
+import { setIsLogged, setCurrentUID, setCurrentEmail } from "../redux/userSlice";
 import { useDispatch } from "react-redux";
 import { setDoc, doc } from "firebase/firestore";
 
@@ -22,8 +22,10 @@ const Signup = () => {
           console.log(credential);
           dispatch(setIsLogged(true));
           dispatch(setCurrentUID(credential.user.uid))
+          dispatch(setCurrentEmail(email))
           setDoc(doc(db,"users", credential.user.uid), {
-            email: credential.user.email
+            email: credential.user.email,
+            posts: []
           })
           navigate("/profile");
           setErrorMessage("")
