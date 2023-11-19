@@ -20,7 +20,7 @@ function App() {
     <div className="App text-gray-800">
       <Menu />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={isLogged ? <Navigate to="/profile"/> : <Home />} />
         <Route
           path="/login"
           element={isLogged ? <Navigate to="/profile" /> : <Login />}
