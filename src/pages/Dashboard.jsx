@@ -81,14 +81,14 @@ const Dashboard = () => {
       {/* post input */}
       <div className="post-area">
         <textarea
-          placeholder="Type on to post..."
-          className=" bg-blue-100 border-none outline-none px-5 py-1 w-[500px] h-[150px] resize-none"
+          placeholder="What you wanna share today...?"
+          className=" bg-blue-100 border-none outline-none px-5 py-1 w-[500px] h-[150px] resize-none rounded-md"
           value={noteText}
           onChange={(e) => setNoteText(e.target.value)}
         />
         <br />
         <button
-          className=" bg-teal-400 px-5 py-1 text-white font-bold hover:bg-teal-500"
+          className=" bg-teal-400 px-5 py-1 text-white font-bold hover:bg-teal-500 rounded-md"
           onClick={handlePost}>
           Post
         </button>
@@ -102,9 +102,10 @@ const Dashboard = () => {
         ) : (
           notes.map((item) => (
             <div
-              className="note bg-blue-100 w-[500px] mb-10 px-5 py-2"
+              className="note bg-blue-100 w-[500px] mb-10 px-5 py-2 rounded-md"
               key={item.id}>
-              <p>{item.text}</p>
+              <p className=" font-medium">{item.text}</p>
+              <span className=" text-white text-sm font-semibold">{item.date}</span>
             </div>
           ))
         )}
