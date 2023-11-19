@@ -12,7 +12,6 @@ const Profile = () => {
   const isLogged = useSelector((state) => state.userSlice.isLogged);
   const currentUID = useSelector((state) => state.userSlice.currentUID);
   const currentEmail = useSelector((state) => state.userSlice.currentEmail);
-
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -27,19 +26,21 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    // this was to display email on profile page, but this function
+    // i guess no need to be presented, but good demonstration of 
+    // getting reference and snapshot from firebase
     const getEmail = async () => {
       const docRef = doc(db, "users", localStorage.currentUID);
       const docSnap = await getDoc(docRef);
       if(docSnap.exists()){
         let data = docSnap.data();
-        dispatch(setCurrentEmail(data.email));
-        console.log(data.email);
+        // dispatch(setCurrentEmail(data.email));
       }else{
         console.log("no such document")
       }
     }
     getEmail();
-  }, [dispatch])
+  }, [])
 
 
   return (
