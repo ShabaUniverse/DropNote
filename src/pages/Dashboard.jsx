@@ -58,6 +58,7 @@ const Dashboard = () => {
       posts: [...(existingData.posts || []), newPost],
     });
     setDataIsLoaded(false);
+    setNoteText("");
     console.log("post added");
   };
 
@@ -86,7 +87,7 @@ const Dashboard = () => {
       const docRef = doc(db, "users", localStorage.currentUID);
       const docSnap = await getDoc(docRef);
       const snapshot = docSnap.data();
-      setNotes(snapshot.posts);
+      setNotes(snapshot.posts.reverse());
       setDataIsLoaded(true);
     };
     if (dataIsLoaded === false || deleteProcess === false) {
