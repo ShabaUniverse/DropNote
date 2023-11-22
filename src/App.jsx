@@ -31,13 +31,13 @@ function App() {
           element={isLogged ? <Navigate to="/profile" /> : <Signup />}
         />
         <Route
-          path="/profile"
-          element={isLogged ? <Profile /> : <Navigate to="/login" />}
+          path="/dashboard"
+          element={isLogged ? <Dashboard /> : <Navigate to="/login" />}
         />
 
         <Route
-          path="/dashboard"
-          element={isLogged ? <Dashboard /> : <Navigate to="/login" />}
+          path="/profile"
+          element={isLogged ? <Profile /> : <Navigate to="/login" />}
         />
       </Routes>
     </div>
