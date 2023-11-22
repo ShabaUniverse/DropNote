@@ -45,7 +45,7 @@ const Signup = () => {
 
 
   return (
-    <div className="h-screen pl-48">
+    <div className="h-screen md:pl-48">
       <div className="container max-w-5xl mx-auto h-full">
         <div className="wrapper w-full h-full flex justify-center items-center">
           <div className="inputs flex flex-col justify-center items-center">

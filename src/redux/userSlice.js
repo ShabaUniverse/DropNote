@@ -10,17 +10,16 @@ const userSlice = createSlice({
     reducers: {
         setIsLogged(state, action){
             state.isLogged = action.payload;
-            localStorage.setItem("isLogged", action.payload)
+            localStorage.setItem("isLogged", action.payload);
         },
         setCurrentUID(state, action){
             state.currentUID = action.payload;
-            localStorage.setItem("currentUID", action.payload)
+            localStorage.setItem("currentUID", action.payload);
         },
         setCurrentEmail(state, action) {
             state.currentEmail = action.payload;
-            localStorage.setItem("currentEmail", action.payload)
+            localStorage.setItem("currentEmail", action.payload);
         }
-        
     }
 })
 
