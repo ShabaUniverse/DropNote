@@ -3,7 +3,7 @@ import '../pending.css';
 
 const PendingElement = () => {
   return (
-    <div class="lds-spinner">
+    <div className="lds-spinner">
       <div></div>
       <div></div>
       <div></div>
