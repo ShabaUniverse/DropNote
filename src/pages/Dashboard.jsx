@@ -12,6 +12,7 @@ const Dashboard = () => {
   const isLogged = useSelector((state) => state.userSlice.isLogged);
   const currentUID = useSelector((state) => state.userSlice.currentUID);
   const currentEmail = useSelector((state) => state.userSlice.currentEmail);
+  
   const handleLogout = async () => {
     try {
       await signOut(auth);

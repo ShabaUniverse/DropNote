@@ -15,7 +15,6 @@ import Dashboard from "./pages/Dashboard";
 
 function App() {
   const isLogged = useSelector((state) => state.userSlice.isLogged);
-
   return (
     <div className="App text-gray-800">
       <Menu />

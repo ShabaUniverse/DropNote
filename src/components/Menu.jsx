@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 const Menu = () => {
   const isLogged = useSelector((state) => state.userSlice.isLogged);
   const [hamMenu, setHamMenu] = useState(true);
-  console.log(hamMenu);
-
+  
   return (
     <div className="menu">
       {/* CLOSE OPEN ----------------------------------------------------- */}
